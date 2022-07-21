@@ -1,0 +1,15 @@
+#links-list {
+    margin-left: 10px;
+}
+
+.container{
+    margin-top: 10px;
+}
+
+table{
+    border: 2px solid black;
+}
+
+table thead{
+    color: blue;
+}
