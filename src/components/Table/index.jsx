@@ -9,7 +9,7 @@ function Table() {
 
     useEffect(() => {
         async function dataAPI() {
-          const url = "http://localhost:5500/api"
+          const url = "https://shrouded-plateau-27488.herokuapp.com/api"
           const response = await fetch(url);
           const data = await response.json();
         

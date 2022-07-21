@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 function ViewAfastamento(){
 
-    const url = "http://localhost:5500/api"
+    const url = "https://shrouded-plateau-27488.herokuapp.com/api"
 
     const [nomeMilitar, setNomeMilitar] = useState()
     const [dataInicio, setDataInicio] = useState()

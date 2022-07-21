@@ -12,7 +12,7 @@ function FormCadastro() {
     //Recebe os dados do formulario
     function onSumbit(data) {
         //setafastamento(data);
-        const url = "http://localhost:5500/api";
+        const url = "https://shrouded-plateau-27488.herokuapp.com/api";
 
         fetch(url, {
             method: "POST",
