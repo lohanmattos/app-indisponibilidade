@@ -1,3 +1,5 @@
+import "./styless.css";
+
 function Footer() {
     return (
         <div>

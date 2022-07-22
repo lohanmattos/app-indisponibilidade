@@ -11,6 +11,12 @@ import './styless.css'
 
 function Table() {
 
+    const data = new Date().toLocaleDateString('pt-br',{
+        day: 'numeric',
+        month: 'numeric',
+        year: 'numeric',
+    })
+
     const [open, setOpen] = React.useState(false);
 
     const handleClose = () => {
@@ -40,7 +46,8 @@ function Table() {
     return (
         <div className="container">
             <br />
-
+            <h2>INDISPONIBILIDADES</h2>
+            <h5>Data: {data}</h5>  
             <table className="table table-striped">
                 <thead className=" table-dark">
                     <tr>

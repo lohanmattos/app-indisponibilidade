@@ -1,9 +1,7 @@
-.alert{
-    display: none;
-}
-
-.alert_visible{
-    display: block;
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 h2{

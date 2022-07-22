@@ -1,11 +1,10 @@
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
 
 import "./styless.css"
 
 function FormCadastro() {
     //carrega function do componente useForm
-    const { register, handleSubmit} = useForm();
+    const { register, handleSubmit } = useForm();
 
     //Recebe os dados do formulario
     function onSumbit(data) {
@@ -28,8 +27,9 @@ function FormCadastro() {
     }
 
     return (
-        <div className="container">   
+        <div className="container">
             <br />
+            <h2>CADASTRAR INDISPONIBILIDADE</h2>
             <form onSubmit={handleSubmit(onSumbit)}>
                 <div className="mb-3">
                     <label htmlFor="nomeMilitar" className="form-label">Nome Do Militar</label>
@@ -37,16 +37,29 @@ function FormCadastro() {
                         type="text"
                         className="form-control"
                         placeholder="Ex: 3S BET FULANO"
-                        {...register("nomeMilitar", {required: true})}/>
-              
+                        {...register("nomeMilitar", { required: true })} />
+
                 </div>
+
+                <div className="mb-3">
+                    <label htmlFor="motivo" className="form-label">Motivo</label>
+                    <select className="form-select" aria-label="Default select example">
+
+                </select>
+                </div>
+
+                <div className="mb-3">
+                    <label htmlFor="descricao" className="form-label">Descrição</label>
+                    <textarea className="form-control" placeholder='DESCREVA O MOTIVO DA INDISPONIBILIDADE' rowsid="descricao" rows="5"></textarea>
+                </div>
+
                 <div className="row g-3">
                     <div className="col">
                         <label htmlFor="dataTermino">Data de Inicio</label>
                         <input type="date"
                             className="form-control"
                             placeholder="Inicio do Afastamento"
-                            {...register("dataInicio", {required: true})}
+                            {...register("dataInicio", { required: true })}
                         />
                     </div>
                     <div className="col">
@@ -56,7 +69,7 @@ function FormCadastro() {
                             id="dataFim"
                             className="form-control"
                             placeholder="Fim do Afastamento"
-                            {...register("dataFim",  {required: true})}
+                            {...register("dataFim", { required: true })}
                         />
                     </div>
                 </div>
