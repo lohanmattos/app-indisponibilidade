@@ -6,16 +6,12 @@ import { Link } from "react-router-dom";
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
+import { format, compareAsc } from 'date-fns'
 
 import './styless.css'
 
 function Table() {
 
-    const data = new Date().toLocaleDateString('pt-br',{
-        day: 'numeric',
-        month: 'numeric',
-        year: 'numeric',
-    })
 
     const [open, setOpen] = React.useState(false);
 
@@ -43,11 +39,14 @@ function Table() {
         dataAPI();
     }, []);
 
+    function formatData(datastring) {
+        
+    }
+
     return (
         <div className="container">
             <br />
             <h2>INDISPONIBILIDADES</h2>
-            <h5>Data: {data}</h5>  
             <table className="table table-striped">
                 <thead className=" table-dark">
                     <tr>
@@ -60,18 +59,19 @@ function Table() {
                 <tbody>
                     {
                         afastamentos.map(afastamento => (
-                            <tr key={afastamento.id}>                               
-                                <td><strong>{afastamento.nomeMilitar}</strong></td>
-                                <td>{afastamento.dataInicio}</td>
-                                <td>{afastamento.dataFim}</td>
+                            <tr key={afastamento.id}>
+                                <td><strong>{afastamento.nomeMilitar}</strong></td>     
+                                <td>{format(new Date(afastamento.dataInicio), 'dd/MM/yyyy')}</td>       
+                                <td>{format(new Date(afastamento.dataFim), 'dd/MM/yyyy')}</td>
                                 <td id="links">
-                                        <Link id="links-list" to={`view/${afastamento.id}`}><i className="fa-solid fa-eye"></i></Link> 
-                                        <Link id="links-list" to={`view/${afastamento.id}`}><i className="fa-solid fa-pen-to-square"></i></Link>                                                         
+                                    <Link id="links-list" to={`view/${afastamento.id}`}><i className="fa-solid fa-eye"></i></Link>
+                                    <Link id="links-list" to={`view/${afastamento.id}`}><i className="fa-solid fa-pen-to-square"></i></Link>
                                 </td>
                             </tr>
                         ))
+
                     }
-                        
+
                 </tbody>
             </table>
 
