@@ -1,12 +1,11 @@
+import BASE_URL from '../../utils/request';
 
 function DeleteAfastamento(id){
-        //setafastamento(data);
-        const url = "https://shrouded-plateau-27488.herokuapp.com/api";
 
         const confirmar = window.confirm("Deseja excluir");
 
         if(confirmar){
-        fetch(`${url}/${id}`, {
+        fetch(`${BASE_URL}/${id}`, {
             method: "DELETE",
             headers: {
                 "content-type": "application/json; charset=utf-8"

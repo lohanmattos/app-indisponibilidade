@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import { format} from 'date-fns'
+import BASE_URL from '../../utils/request';
 
 import './styless.css'
 
@@ -28,7 +28,7 @@ function Table() {
     useEffect(() => {
         async function dataAPI() {
             handleToggle(true);
-            const url = "https://shrouded-plateau-27488.herokuapp.com/api"
+            const url = `${BASE_URL}`
             const response = await fetch(url);
             const data = await response.json();
 

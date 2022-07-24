@@ -4,11 +4,11 @@ import { useParams } from "react-router-dom";
 
 import DeleteAfastamento from '../DeleteAfastamento';
 
+import BASE_URL from '../../utils/request';
+
 import './styless.css'
 
 function FormEdit(){
-
-    const url = "https://shrouded-plateau-27488.herokuapp.com/api"
 
     const [nomeMilitar, setNomeMilitar] = useState("")
     const [dataInicio, setDataInicio] = useState("")
@@ -20,7 +20,7 @@ function FormEdit(){
     function updateAfastamento() {
         const idAfastamento = params.id;
 
-        fetch(`${url}/${idAfastamento}`)
+        fetch(`${BASE_URL}/${idAfastamento}`)
             .then(response => response.json())
             .then(data => {
                 setNomeMilitar(data.nomeMilitar),
@@ -40,9 +40,6 @@ function FormEdit(){
 
             const id = params.id;
 
-            //setafastamento(data);
-            const url = "https://shrouded-plateau-27488.herokuapp.com/api";
-
             const confirmar = window.confirm(`
             Confirme os dados abaixo: 
             Nome: ${data.nomeMilitar}
@@ -51,7 +48,7 @@ function FormEdit(){
 
         if(confirmar){
 
-            fetch(`${url}/${id}`, {
+            fetch(`${BASE_URL}/${id}`, {
                 method: "PUT",
                 body: JSON.stringify(data),
                 headers: {

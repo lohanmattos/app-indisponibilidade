@@ -1,6 +1,5 @@
-import { set } from 'date-fns';
-import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import BASE_URL from '../../utils/request';
 
 import "./styless.css"
 
@@ -18,10 +17,8 @@ function FormCadastro() {
         );
 
         if (confirmar) {
-            //setafastamento(data);
-            const url = "https://shrouded-plateau-27488.herokuapp.com/api";
 
-            fetch(url, {
+            fetch(BASE_URL, {
                 method: "POST",
                 body: JSON.stringify(data),
                 headers: {
@@ -35,7 +32,6 @@ function FormCadastro() {
                 })
                 .catch(err => console.error(err))
                 
-                setNomeMilitar(" ")
         }
 
         

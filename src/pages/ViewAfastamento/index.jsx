@@ -1,16 +1,15 @@
 import { useState } from "react"
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 import Navbar from "../../components/Navbar";
 import Divider from "../../components/Divider";
 import Footer from "../../components/Footer";
 
+import BASE_URL from '../../utils/request';
+
 import "./styless.css"
 
 function ViewAfastamento() {
-
-    const url = "https://shrouded-plateau-27488.herokuapp.com/api"
 
     const [nomeMilitar, setNomeMilitar] = useState()
     const [dataInicio, setDataInicio] = useState()
@@ -22,7 +21,7 @@ function ViewAfastamento() {
     function getUser() {
         const idAfastamento = params.id;
 
-        fetch(`${url}/${idAfastamento}`)
+        fetch(`${BASE_URL}/${idAfastamento}`)
             .then(response => response.json())
             .then(data => {
                 setNomeMilitar(data.nomeMilitar),
