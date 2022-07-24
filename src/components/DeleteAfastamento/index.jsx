@@ -1,21 +1,17 @@
 import BASE_URL from '../../utils/request';
+import axios from "axios";
 
 function DeleteAfastamento(id){
 
         const confirmar = window.confirm("Deseja excluir");
 
         if(confirmar){
-        fetch(`${BASE_URL}/${id}`, {
-            method: "DELETE",
-            headers: {
-                "content-type": "application/json; charset=utf-8"
-            }
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
+            axios.delete(`${BASE_URL}/${id}`)
+            .then(response => {
+                //
             })
-            .catch(err => console.error(err))
+            .catch(e => console.error(e));
+
         }
 }
 

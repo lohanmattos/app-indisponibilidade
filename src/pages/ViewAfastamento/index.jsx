@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
 
 import Navbar from "../../components/Navbar";
@@ -18,7 +18,7 @@ function ViewAfastamento() {
     //recupera os paramentros vindo da url
     let params = useParams();
 
-    function getUser() {
+    useEffect(() => {
         const idAfastamento = params.id;
 
         fetch(`${BASE_URL}/${idAfastamento}`)
@@ -29,16 +29,15 @@ function ViewAfastamento() {
                     setDataFim(data.dataFim)
             })
             .catch(err => console.error(err));
-    }
 
-    getUser()
+    }, []);
 
     return (
         <div>
             <Navbar />
             <Divider />
             <div className="container">
-                <h2>MILITAR INDISPONÍVEL</h2>       
+                <h2>MILITAR INDISPONÍVEL</h2>
                 <table className="table table-borderless">
                     <thead>
                         <tr>
@@ -55,7 +54,7 @@ function ViewAfastamento() {
                         </tr>
                     </tbody>
                 </table>
-                <br/>
+                <br />
                 <table class="table table-borderless">
                     <thead>
                         <tr>
@@ -71,10 +70,10 @@ function ViewAfastamento() {
                     </tbody>
                 </table>
                 <div className="footer">
-                <button className="btn btn-primary" onClick={window.print} ><i class="fa-solid fa-print"></i></button>
+                    <button className="btn btn-primary" onClick={window.print} ><i class="fa-solid fa-print"></i></button>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
 
     )

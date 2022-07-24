@@ -5,7 +5,7 @@ import "./styless.css"
 
 function FormCadastro() {
     //carrega function do componente useForm
-    const { register, handleSubmit} = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
     //Recebe os dados do formulario
     function onSumbit(data) {
@@ -17,24 +17,12 @@ function FormCadastro() {
         );
 
         if (confirmar) {
-
-            fetch(BASE_URL, {
-                method: "POST",
-                body: JSON.stringify(data),
-                headers: {
-                    "content-type": "application/json; charset=utf-8"
-                }
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-
+            axios.post(BASE_URL, data)
+                .then(response => {
+                    console.log(response.data)
                 })
-                .catch(err => console.error(err))
-                
+                .catch(e => console.error(e))
         }
-
-        
     }
 
     return (
@@ -87,9 +75,21 @@ function FormCadastro() {
                 <br />
                 <button
                     type="submit"
-                    className="btn btn-primary" 
+                    className="btn btn-primary"
                 >Cadastrar
                 </button>
+                <input
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={() =>
+                        reset({
+                            nomeMilitar: " ",
+                            dataInicio: " ",
+                            dataFim: " "
+                        })
+                    }
+                    value="Limpar"
+                />
             </form>
         </div>
     )
