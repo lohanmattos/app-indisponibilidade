@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import { format, compareAsc } from 'date-fns'
+import { format} from 'date-fns'
 
 import './styless.css'
 
@@ -39,9 +39,6 @@ function Table() {
         dataAPI();
     }, []);
 
-    function formatData(datastring) {
-        
-    }
 
     return (
         <div className="container">
@@ -61,11 +58,11 @@ function Table() {
                         afastamentos.map(afastamento => (
                             <tr key={afastamento.id}>
                                 <td><strong>{afastamento.nomeMilitar}</strong></td>     
-                                <td>{format(new Date(afastamento.dataInicio), 'dd/MM/yyyy')}</td>       
-                                <td>{format(new Date(afastamento.dataFim), 'dd/MM/yyyy')}</td>
+                                <td>{afastamento.dataInicio}</td>       
+                                <td>{afastamento.dataFim}</td>
                                 <td id="links">
                                     <Link id="links-list" to={`view/${afastamento.id}`}><i className="fa-solid fa-eye"></i></Link>
-                                    <Link id="links-list" to={`view/${afastamento.id}`}><i className="fa-solid fa-pen-to-square"></i></Link>
+                                    <Link id="links-list" to={`edit/${afastamento.id}`}><i className="fa-solid fa-pen-to-square"></i></Link>
                                 </td>
                             </tr>
                         ))

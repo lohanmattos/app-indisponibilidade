@@ -40,7 +40,7 @@ function ViewAfastamento() {
             <Divider />
             <div className="container">
                 <h2>MILITAR INDISPONÍVEL</h2>       
-                <table class="table table-borderless">
+                <table className="table table-borderless">
                     <thead>
                         <tr>
                             <th scope="col">Nome</th>

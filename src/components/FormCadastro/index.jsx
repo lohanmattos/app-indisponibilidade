@@ -1,29 +1,44 @@
+import { set } from 'date-fns';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import "./styless.css"
 
 function FormCadastro() {
     //carrega function do componente useForm
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit} = useForm();
 
     //Recebe os dados do formulario
     function onSumbit(data) {
-        //setafastamento(data);
-        const url = "https://shrouded-plateau-27488.herokuapp.com/api";
 
-        fetch(url, {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                "content-type": "application/json; charset=utf-8"
-            }
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
+        const confirmar = window.confirm(`
+            Confirme os dados abaixo: 
+            Nome: ${data.nomeMilitar}
+            Periodo: ${data.dataInicio} a ${data.dataFim}`
+        );
 
+        if (confirmar) {
+            //setafastamento(data);
+            const url = "https://shrouded-plateau-27488.herokuapp.com/api";
+
+            fetch(url, {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                    "content-type": "application/json; charset=utf-8"
+                }
             })
-            .catch(err => console.error(err))
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+
+                })
+                .catch(err => console.error(err))
+                
+                setNomeMilitar(" ")
+        }
+
+        
     }
 
     return (
@@ -45,7 +60,7 @@ function FormCadastro() {
                     <label htmlFor="motivo" className="form-label">Motivo</label>
                     <select className="form-select" aria-label="Default select example">
 
-                </select>
+                    </select>
                 </div>
 
                 <div className="mb-3">
@@ -55,7 +70,7 @@ function FormCadastro() {
 
                 <div className="row g-3">
                     <div className="col">
-                        <label htmlFor="dataTermino">Data de Inicio</label>
+                        <label htmlFor="dataInicio">Data de Inicio</label>
                         <input type="date"
                             className="form-control"
                             placeholder="Inicio do Afastamento"
@@ -76,7 +91,7 @@ function FormCadastro() {
                 <br />
                 <button
                     type="submit"
-                    className="btn btn-primary"
+                    className="btn btn-primary" 
                 >Cadastrar
                 </button>
             </form>
