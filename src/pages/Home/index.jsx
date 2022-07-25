@@ -8,7 +8,7 @@ import './styless.css'
 function Home() {
 
   return (
-    <div> 
+    <div>       
       <Navbar/>
       <Divider/>
       <Table/>

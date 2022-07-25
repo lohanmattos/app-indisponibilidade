@@ -112,7 +112,7 @@ function FormEdit() {
                     <button
                         type="submit"
                         className="btn btn-primary"
-                    >Cadastrar
+                    >Salvar
                     </button>
                     <button
                         type="button"

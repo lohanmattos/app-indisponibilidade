@@ -15,21 +15,33 @@ function FormCadastro() {
             Confirme os dados abaixo: 
             Nome: ${data.nomeMilitar}
             Periodo: ${data.dataInicio} a ${data.dataFim}`
+            
         );
 
         if (confirmar) {
             axios.post(BASE_URL, data)
                 .then(response => {
-                    console.log(response.data)
+                    console.log(response.status)
+                    if (response.status === 200) {
+                        const alerta_sucesso = document.getElementById('alert-sucesso');
+                        alerta_sucesso.classList.add('alert_visible')
+                    }
+                    else if (!response.status === 404) {
+
+                    }
                 })
                 .catch(e => console.error(e))
-        }
-    }
 
+        }
+
+    }
     return (
         <div className="container">
             <br />
             <h2>CADASTRAR INDISPONIBILIDADE</h2>
+            <div id="alert-sucesso" className="alert alert-success" role="alert">
+                Indisponibilidade cadastrada com sucesso.
+            </div>
             <form onSubmit={handleSubmit(onSumbit)}>
                 <div className="mb-3">
                     <label htmlFor="nomeMilitar" className="form-label">Nome Do Militar</label>
@@ -77,6 +89,7 @@ function FormCadastro() {
                 <button
                     type="submit"
                     className="btn btn-primary"
+             
                 >Cadastrar
                 </button>
                 <input
