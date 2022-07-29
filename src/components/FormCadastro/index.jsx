@@ -76,7 +76,7 @@ function FormCadastro() {
                     <textarea className="form-control"
                         placeholder='DESCREVA O MOTIVO DA INDISPONIBILIDADE'
                         rowsid="descricao" rows="5"
-                        {...register("descricao", { required: true })}
+                        {...register("descricao", { required: false })}
                     />
                 </div>
 
