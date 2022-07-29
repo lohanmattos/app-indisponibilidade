@@ -13,7 +13,13 @@ function FormCadastro() {
     const [militares, setMilitares] = useState([
         '1T ALINE SOUZA',
         'SO SAD AZEREDO',
-        'SO SEM MEIRELES'
+        'SO SEM MEIRELES',
+        "1S SGS JOEL",
+        "2S BET BANDEIRA",
+        "2S BET GONÇALVES",
+        "2S SEL COUTINHO",
+        "3S BET LOHAN",
+        "3S SGS PAULO MACEDO"
     ])
 
     //Recebe os dados do formulario
