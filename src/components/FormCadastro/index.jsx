@@ -61,13 +61,13 @@ function FormCadastro() {
                         aria-label="Default select example"
                         {...register("categoria", { required: true })}
                     >
-                        <option value="Ferias">Férias</option>
-                        <option value="Curso">Curso</option>
-                        <option value="Instalação">Instalação</option>
-                        <option value="Reunião de Comando">Reunião de Comando</option>
-                        <option value="Comissonamento">Comissonamento</option>
-                        <option value="Inspeção de Saúde">Inspeção de Saúde</option>
-                        <option value="Outros">Outros</option>
+                        <option value="FÉRIAS">FÉRIAS</option>
+                        <option value="CURSO">CURSO</option>
+                        <option value="INSTALAÇÃO">INSTALAÇÃO</option>
+                        <option value="REUNIÃO">REUNIÃO</option>
+                        <option value="COMISSONAMENTO">COMISSONAMENTO</option>
+                        <option value="INSPEÇÃO DE SAÚDE">INSPEÇÃO DE SAÚDE</option>
+                        <option value="OUTROS">OUTROS</option>
                     </select>
                 </div>
 
