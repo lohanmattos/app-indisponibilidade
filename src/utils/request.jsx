@@ -6,6 +6,6 @@
 //"https://api-afastamento.herokuapp.com"
 //import.meta.env.REACT_APP_BACKEND_URL
 
-const BASE_URL = import.meta.env.REACT_APP_BACKEND_URL 
+const BASE_URL = import.meta.REACT_APP_BACKEND_URL 
 
 export default BASE_URL
