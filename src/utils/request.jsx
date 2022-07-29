@@ -5,6 +5,6 @@ import process from "process";
 //"https://shrouded-plateau-27488.herokuapp.com/api"
 //"https://api-afastamento.herokuapp.com"
 
-const BASE_URL = process.env.REACT_APP_BACKEND_URL
+const BASE_URL = import.meta.env.REACT_APP_BACKEND_URL
 
 export default BASE_URL
