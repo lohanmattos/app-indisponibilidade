@@ -6,14 +6,13 @@ import Divider from "../../components/Divider";
 import Footer from "../../components/Footer";
 
 import BASE_URL from '../../utils/request';
+import { parseISO } from 'date-fns'
 
 import "./styless.css"
 
 function ViewAfastamento() {
 
-    const [nomeMilitar, setNomeMilitar] = useState()
-    const [dataInicio, setDataInicio] = useState()
-    const [dataFim, setDataFim] = useState()
+    const [afastamento, setAfastamento] = useState({})
 
     //recupera os paramentros vindo da url
     let params = useParams();
@@ -21,14 +20,15 @@ function ViewAfastamento() {
     useEffect(() => {
         const idAfastamento = params.id;
 
-        fetch(`${BASE_URL}/${idAfastamento}`)
-            .then(response => response.json())
-            .then(data => {
-                setNomeMilitar(data.nomeMilitar),
-                    setDataInicio(data.dataInicio),
-                    setDataFim(data.dataFim)
-            })
-            .catch(err => console.error(err));
+        async function dataAPI() {
+            const url = `${BASE_URL}/afastamentos/${idAfastamento}`
+            const response = await fetch(url);
+            const data = await response.json();
+
+            setAfastamento(data);
+            
+        }
+        dataAPI();
 
     }, []);
 
@@ -47,15 +47,16 @@ function ViewAfastamento() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>{nomeMilitar}</th>
-                            <td>{dataInicio}</td>
-                            <td>{dataFim}</td>
+                        <tr key={afastamento.nome_militar}>
+                       
+                            <th>{afastamento.nome_militar}</th>
+                            <td>{new Date(parseISO(afastamento.dataInicio)).toLocaleDateString()}</td>
+                            <td>{new Date(parseISO(afastamento.dataFim)).toLocaleDateString()}</td>
                         </tr>
                     </tbody>
                 </table>
                 <br />
-                <table class="table table-borderless">
+                <table className="table table-borderless">
                     <thead>
                         <tr>
                             <th scope="col">Motivo</th>
@@ -64,13 +65,13 @@ function ViewAfastamento() {
                     </thead>
                     <tbody>
                         <tr>
-                            <th>Curso</th>
-                            <td>Realizar o Curso RAD025, no CINDACTA I</td>
+                            <th>{afastamento.categoria}</th>
+                            <td>{afastamento.descricao}</td>
                         </tr>
                     </tbody>
                 </table>
                 <div className="footer">
-                    <button className="btn btn-primary" onClick={window.print} ><i class="fa-solid fa-print"></i></button>
+                    <button className="btn btn-primary" onClick={window.print} ><i className="fa-solid fa-print"></i></button>
                 </div>
             </div>
             <Footer />

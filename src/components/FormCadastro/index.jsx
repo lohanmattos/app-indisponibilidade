@@ -3,38 +3,33 @@ import BASE_URL from '../../utils/request';
 import axios from "axios";
 
 import "./styless.css"
+import { useState } from 'react';
 
 function FormCadastro() {
     //carrega function do componente useForm
     const { register, handleSubmit, reset } = useForm();
 
+    //array usuarios
+    const [militares, setMilitares] = useState([
+        '1T ALINE SOUZA',
+        'SO SAD AZEREDO',
+        'SO SEM MEIRELES'
+    ])
+
     //Recebe os dados do formulario
     function onSumbit(data) {
-
-        const confirmar = window.confirm(`
-            Confirme os dados abaixo: 
-            Nome: ${data.nomeMilitar}
-            Periodo: ${data.dataInicio} a ${data.dataFim}`
-            
-        );
-
-        if (confirmar) {
-            axios.post(BASE_URL, data)
-                .then(response => {
-                    console.log(response.status)
-                    if (response.status === 200) {
-                        const alerta_sucesso = document.getElementById('alert-sucesso');
-                        alerta_sucesso.classList.add('alert_visible')
-                    }
-                    else if (!response.status === 404) {
-
-                    }
-                })
-                .catch(e => console.error(e))
-
-        }
-
+        axios.post(`${BASE_URL}/afastamentos/criar`, data)
+            .then(response => {
+                if (response.status === 200) {
+                    const alerta_sucesso = document.getElementById('alert-sucesso');
+                    alerta_sucesso.classList.add('alert_visible')
+                }
+                else if (!response.status === 404) {
+                }
+            })
+            .catch(e => console.error(e))
     }
+
     return (
         <div className="container">
             <br />
@@ -45,24 +40,38 @@ function FormCadastro() {
             <form onSubmit={handleSubmit(onSumbit)}>
                 <div className="mb-3">
                     <label htmlFor="nomeMilitar" className="form-label">Nome Do Militar</label>
-                    <input required
-                        type="text"
-                        className="form-control"
-                        placeholder="Ex: 3S BET FULANO"
-                        {...register("nomeMilitar", { required: true })} />
-
+                    <select className="form-select"
+                        {...register("nome_militar", { required: true })}>
+                        {militares.map(militar => (
+                            <option value={militar} key={militar}>{militar}</option>
+                        ))
+                        }
+                    </select>
                 </div>
 
                 <div className="mb-3">
                     <label htmlFor="motivo" className="form-label">Motivo</label>
-                    <select className="form-select" aria-label="Default select example">
-
+                    <select className="form-select"
+                        aria-label="Default select example"
+                        {...register("categoria", { required: true })}
+                    >
+                        <option value="Ferias">Férias</option>
+                        <option value="Curso">Curso</option>
+                        <option value="Instalação">Instalação</option>
+                        <option value="Reunião de Comando">Reunião de Comando</option>
+                        <option value="Comissonamento">Comissonamento</option>
+                        <option value="Inspeção de Saúde">Inspeção de Saúde</option>
+                        <option value="Outros">Outros</option>
                     </select>
                 </div>
 
                 <div className="mb-3">
                     <label htmlFor="descricao" className="form-label">Descrição</label>
-                    <textarea className="form-control" placeholder='DESCREVA O MOTIVO DA INDISPONIBILIDADE' rowsid="descricao" rows="5"></textarea>
+                    <textarea className="form-control"
+                        placeholder='DESCREVA O MOTIVO DA INDISPONIBILIDADE'
+                        rowsid="descricao" rows="5"
+                        {...register("descricao", { required: true })}
+                    />
                 </div>
 
                 <div className="row g-3">
@@ -89,7 +98,7 @@ function FormCadastro() {
                 <button
                     type="submit"
                     className="btn btn-primary"
-             
+
                 >Cadastrar
                 </button>
                 <input

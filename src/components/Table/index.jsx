@@ -8,6 +8,8 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 import BASE_URL from '../../utils/request';
 
+import { format, parseISO} from 'date-fns'
+
 import './styless.css'
 
 function Table() {
@@ -28,17 +30,18 @@ function Table() {
     useEffect(() => {
         async function dataAPI() {
             handleToggle(true);
-            const url = `${BASE_URL}`
+            const url = `${BASE_URL}/afastamentos`
             const response = await fetch(url);
             const data = await response.json();
 
             handleClose();
-            setAfastamentos(data.afastamentos);
+            setAfastamentos(data);
+            
         }
-
         dataAPI();
     }, []);
 
+    
 
     return (
         <div className="container">
@@ -57,9 +60,9 @@ function Table() {
                     {
                         afastamentos.map(afastamento => (
                             <tr key={afastamento.id}>
-                                <td><strong>{afastamento.nomeMilitar}</strong></td>     
-                                <td>{afastamento.dataInicio}</td>       
-                                <td>{afastamento.dataFim}</td>
+                                <td><strong>{afastamento.nome_militar}</strong></td>     
+                                <td>{format(new Date(parseISO(afastamento.dataInicio)),'dd/MM/yyyy')}</td>       
+                                <td>{format(new Date(parseISO(afastamento.dataFim)), 'dd/MM/yyyy')}</td>
                                 <td id="links">
                                     <Link id="links-list" to={`view/${afastamento.id}`}><i className="fa-solid fa-eye"></i></Link>
                                     <Link id="links-list" to={`edit/${afastamento.id}`}><i className="fa-solid fa-pen-to-square"></i></Link>
