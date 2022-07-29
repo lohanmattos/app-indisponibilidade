@@ -6,6 +6,6 @@
 //"https://api-afastamento.herokuapp.com"
 //import.meta.env.REACT_APP_BACKEND_URL
 
-const BASE_URL = import.meta.env.REACT_APP_BACKEND_URL ?? "http://localhost:3333"
+const BASE_URL = import.meta.env.REACT_APP_BACKEND_URL ?? "https://api-afastamento.herokuapp.com"
 
 export default BASE_URL
