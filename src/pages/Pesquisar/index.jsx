@@ -7,13 +7,12 @@ import { useState } from "react"
 import './styles.css'
 
 import BASE_URL from '../../utils/request';
-import { format, parseISO } from 'date-fns'
 
 function Pesquisar() {
 
     const [afastamentos, setAfastamentos] = useState([{}])
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {
         const url = `${BASE_URL}/afastamentos/filtro/${data.dataInicio}/${data.dataFim}`
@@ -28,14 +27,15 @@ function Pesquisar() {
             <div className="container">
             <h2>PESQUISAR INDISPONIBILIDADE</h2>
                 <form id="form-pesquisar" className="row row-cols-lg-auto g-3 align-items-center" onSubmit={handleSubmit(onSubmit)}>
-                    <label>De:</label>
+                    <label className="form-label"><strong>De:</strong></label>
+
                     <div classname="col-12">
                         <input type="date"
                             className="form-control"
                             {...register("dataInicio")}
                         />
                     </div>
-                    <label>Até:</label>
+                    <label className="form-label"><strong>Até:</strong></label>
                     
                     <div className="col-12">
                         
@@ -75,7 +75,9 @@ function Pesquisar() {
                     </tbody>
                 </table>
             </div>
-
+            <div className="footer">
+                    <button className="btn btn-primary" onClick={window.print} ><i className="fa-solid fa-print"></i></button>
+                </div>
             <Footer />
         </div>
     )
