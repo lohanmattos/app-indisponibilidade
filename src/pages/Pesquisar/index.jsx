@@ -21,7 +21,6 @@ function Pesquisar() {
             .then(response => response.json())
             .then(data => setAfastamentos(data))
     }
-    console.log(afastamentos)
     return (
         <div>
             <Navbar />
