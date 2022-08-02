@@ -78,6 +78,7 @@ function Pesquisar() {
             <div className="footer">
                     <button className="btn btn-primary" onClick={window.print} ><i className="fa-solid fa-print"></i></button>
                 </div>
+                
             <Footer />
         </div>
     )
