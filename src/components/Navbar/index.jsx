@@ -17,6 +17,9 @@ function Navbar() {
                             <li className="nav-item">
                                 <Link className="nav-link" name="id" to={"/cadastro"}>Cadastrar Indis.</Link>         
                             </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" name="id" to={"/pesquisar"}>Relatórios</Link>         
+                            </li>
                         </ul>
                     </div>
                 </div>
