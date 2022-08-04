@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
 
+import * as React from 'react';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+
 import Navbar from "../../components/Navbar";
 import Divider from "../../components/Divider";
 import Footer from "../../components/Footer";
@@ -12,6 +16,16 @@ import "./styless.css"
 
 function ViewAfastamento() {
 
+    const [open, setOpen] = React.useState(false);
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const handleToggle = () => {
+        setOpen(!open);
+    };
+
+
     const [afastamento, setAfastamento] = useState({})
 
     //recupera os paramentros vindo da url
@@ -21,11 +35,13 @@ function ViewAfastamento() {
         const idAfastamento = params.id;
 
         async function dataAPI() {
+            handleToggle(true);
             const url = `${BASE_URL}/afastamentos/${idAfastamento}`
             const response = await fetch(url);
             const data = await response.json();
 
             setAfastamento(data);
+            handleClose();
             
         }
         dataAPI();
@@ -38,6 +54,7 @@ function ViewAfastamento() {
             <Divider />
             <div className="container">
                 <h2>MILITAR INDISPONÍVEL</h2>
+                
                 <table className="table table-borderless">
                     <thead>
                         <tr>
@@ -47,11 +64,10 @@ function ViewAfastamento() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr key={afastamento.nome_militar}>
-                       
+                        <tr key={afastamento.nome_militar}>                    
                             <th>{afastamento.nome_militar}</th>
-                            <td>{new Date(parseISO(afastamento.dataInicio)).toLocaleDateString()}</td>
-                            <td>{new Date(parseISO(afastamento.dataFim)).toLocaleDateString()}</td>
+                            <td>{afastamento.dataInicio === undefined ? ' ' : new Date(parseISO(afastamento.dataInicio)).toLocaleDateString()}</td>
+                            <td>{afastamento.dataFim === undefined ? ' ' : new Date(parseISO(afastamento.dataFim)).toLocaleDateString()}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -70,11 +86,22 @@ function ViewAfastamento() {
                         </tr>
                     </tbody>
                 </table>
+                <div>
+                    <p>Data: <strong>{afastamento.created_at === undefined ? ' ' : new Date(parseISO(afastamento.created_at)).toLocaleDateString()}</strong></p>
+                    <p>Hora: <strong>{afastamento.created_at === undefined ? '' : new Date(parseISO(afastamento.created_at)).toTimeString()}</strong></p>
+                </div>
+                
                 <div className="footer">
                     <button className="btn btn-primary" onClick={window.print} ><i className="fa-solid fa-print"></i></button>
                 </div>
             </div>
-            <Footer />
+            <Backdrop
+                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={open}
+            >
+                <CircularProgress color="success" />
+            </Backdrop>
+            <Footer />      
         </div>
 
     )

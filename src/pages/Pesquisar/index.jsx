@@ -1,25 +1,49 @@
+import * as React from 'react';
 import Navbar from "../../components/Navbar"
 import Divider from "../../components/Divider"
 import Footer from "../../components/Footer"
 import { useForm } from "react-hook-form";
-import { useState } from "react"
+import { useState, useEffect } from "react"
+
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import './styles.css'
 
 import BASE_URL from '../../utils/request';
+import { parseISO } from 'date-fns'
 
 function Pesquisar() {
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const handleToggle = () => {
+        setOpen(!open);
+    };
 
     const [afastamentos, setAfastamentos] = useState([{}])
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {
+        handleToggle(true);
         const url = `${BASE_URL}/afastamentos/filtro/${data.dataInicio}/${data.dataFim}`
         fetch(url)
             .then(response => response.json())
             .then(data => setAfastamentos(data))
     }
+
+
+    useEffect(
+        () => {
+            handleClose();
+        },
+        [afastamentos],
+      );
+
     return (
         <div>
             <Navbar />
@@ -66,8 +90,8 @@ function Pesquisar() {
 
                                 <tr key={afastamento.id + 1}>
                                     <th>{afastamento.nome_militar}</th>
-                                    <th>{afastamento.dataInicio}</th>
-                                    <th>{afastamento.dataFim}</th>
+                                    <th>{afastamento.dataInicio === undefined ? ' ' : new Date(parseISO(afastamento.dataInicio)).toLocaleDateString()}</th>                        
+                                    <th>{afastamento.dataFim === undefined ? ' ' : new Date(afastamento.dataFim).toLocaleDateString()}</th>
                                     <th>{afastamento.categoria}</th>
                                 </tr>
                             ))
@@ -77,9 +101,16 @@ function Pesquisar() {
             </div>
             <div className="footer">
                     <button className="btn btn-primary" onClick={window.print} ><i className="fa-solid fa-print"></i></button>
+            
                 </div>
                 
             <Footer />
+            <Backdrop
+                sx={{ color: '#000', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={open}
+            >
+                <CircularProgress color="success"/>
+            </Backdrop>
         </div>
     )
 }

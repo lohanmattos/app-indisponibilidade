@@ -1,14 +1,13 @@
 import * as React from 'react';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import Backdrop from '@mui/material/Backdrop';
-import CircularProgress from '@mui/material/CircularProgress';
-
 import BASE_URL from '../../utils/request';
 
-import { format, parseISO} from 'date-fns'
+import { format, parseISO } from 'date-fns'
 
 import './styless.css'
 
@@ -33,15 +32,14 @@ function Table() {
             const url = `${BASE_URL}/afastamentos`
             const response = await fetch(url);
             const data = await response.json();
-
-            handleClose();
             setAfastamentos(data);
-            
+            handleClose();
+
         }
         dataAPI();
     }, []);
 
-    
+
 
     return (
         <div className="container">
@@ -60,8 +58,8 @@ function Table() {
                     {
                         afastamentos.map(afastamento => (
                             <tr key={afastamento.id}>
-                                <td><strong>{afastamento.nome_militar}</strong></td>     
-                                <td>{format(new Date(parseISO(afastamento.dataInicio)),'dd/MM/yyyy')}</td>       
+                                <td><strong>{afastamento.nome_militar}</strong></td>
+                                <td>{format(new Date(parseISO(afastamento.dataInicio)), 'dd/MM/yyyy')}</td>
                                 <td>{format(new Date(parseISO(afastamento.dataFim)), 'dd/MM/yyyy')}</td>
                                 <td id="links">
                                     <Link id="links-list" to={`view/${afastamento.id}`}><i className="fa-solid fa-eye"></i></Link>
@@ -79,7 +77,7 @@ function Table() {
                 sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                 open={open}
             >
-                <CircularProgress color="inherit" />
+                <CircularProgress color="success" />
             </Backdrop>
 
         </div>
