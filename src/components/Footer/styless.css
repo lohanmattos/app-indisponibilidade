@@ -9,3 +9,13 @@
     align-items: center;
     justify-content: center;
 }
+
+.icon-rede-social{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.icon-rede-social a{
+    margin: 10px;
+}
