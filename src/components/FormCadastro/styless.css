@@ -13,16 +13,6 @@ h2{
     margin: 20px;
 }
 
-#form{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
-form{
-    width: 600px;
-}
-
 form button{
     margin-top: 50px;
     padding: 25px;
