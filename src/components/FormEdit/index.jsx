@@ -75,6 +75,7 @@ function FormEdit() {
             <div id='alert-deletar' className="alert alert-success" role="alert">
             Indisponibilidade deletada com sucesso.
             </div>
+            <div id='form'>
             <form onSubmit={handleSubmit(onSumbit)}>
                 <div className="mb-3">
                     <label htmlFor="nomeMilitar" className="form-label">Nome Do Militar</label>
@@ -151,7 +152,7 @@ function FormEdit() {
                     </button>
                 </div>
             </form>
-
+            </div>
         </div>
 
     )

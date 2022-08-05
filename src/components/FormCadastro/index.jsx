@@ -43,6 +43,7 @@ function FormCadastro() {
             <div id="alert-sucesso" className="alert alert-success" role="alert">
                 Indisponibilidade cadastrada com sucesso.
             </div>
+            <div id='form'>
             <form onSubmit={handleSubmit(onSumbit)}>
                 <div className="mb-3">
                     <label htmlFor="nomeMilitar" className="form-label">Nome Do Militar</label>
@@ -100,26 +101,15 @@ function FormCadastro() {
                         />
                     </div>
                 </div>
-                <br />
+                <div className="form-button">
                 <button
                     type="submit"
                     className="btn btn-primary"
-
                 >Cadastrar
-                </button>
-                <input
-                    type="button"
-                    className="btn btn-danger"
-                    onClick={() =>
-                        reset({
-                            nomeMilitar: " ",
-                            dataInicio: " ",
-                            dataFim: " "
-                        })
-                    }
-                    value="Limpar"
-                />
+                </button> 
+                </div>                 
             </form>
+            </div>
         </div>
     )
 }
