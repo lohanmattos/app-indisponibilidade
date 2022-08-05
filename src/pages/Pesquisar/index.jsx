@@ -109,7 +109,7 @@ function Pesquisar() {
                 sx={{ color: '#000', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                 open={open}
             >
-                <CircularProgress color="success"/>
+                <CircularProgress color="primary"/>
             </Backdrop>
         </div>
     )
