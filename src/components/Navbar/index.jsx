@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
     return (
-        <div>
+        <div className="">
  <nav className="navbar navbar-dark bg-dark">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="/">Coruja - Gestor</a>

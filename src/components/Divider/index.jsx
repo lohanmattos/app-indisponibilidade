@@ -1,4 +1,6 @@
 import "./styless.css"
+import logo from "/src/assets/logo-fab.jpg"
+
 
 function Divider(){
 
@@ -9,12 +11,13 @@ function Divider(){
     })
 
     return(
-        <div id="divider" className=" bg-dark text-secondary px-2 py-4 text-center">
-                <div className="py-2">  
+        <div id="divider" className=" bg-dark text-secondary px-2 py-6 text-center">
+               <img src={logo} width={80} />
+                <div className="py-6">                 
                     <h1 className="display-4 fw-bold text-white">Módulo Indisponibilidade</h1>
                     <div className="col-lg-4 mx-auto">
-                    <p className="fs-5 mb-4">Esse Sistema visa informar a indisponibilidade de Pessoal.</p>
-                        <h5>Data: {data}</h5>        
+                    {/*<p className="fs-5 mb-4 text-white">Esse Sistema visa informar a indisponibilidade de Pessoal.</p>*/}
+                        <p className="fs-5 mb-4 text-white" >Data: {data}</p>        
                     </div>
                 </div>
         </div>
