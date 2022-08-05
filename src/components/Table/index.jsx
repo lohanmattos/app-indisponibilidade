@@ -74,10 +74,10 @@ function Table() {
             </table>
 
             <Backdrop
-                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                sx={{color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                 open={open}
             >
-                <CircularProgress color="success" />
+                <CircularProgress color="primary" />
             </Backdrop>
 
         </div>
