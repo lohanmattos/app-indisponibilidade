@@ -9,6 +9,7 @@ import BASE_URL from '../../utils/request';
 
 import { format, parseISO } from 'date-fns'
 
+
 import './styless.css'
 
 function Table() {
@@ -79,7 +80,6 @@ function Table() {
             >
                 <CircularProgress color="primary" />
             </Backdrop>
-
         </div>
     )
 }

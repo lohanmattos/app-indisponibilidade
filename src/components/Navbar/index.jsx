@@ -20,6 +20,9 @@ function Navbar() {
                             <li className="nav-item">
                                 <Link className="nav-link" name="id" to={"/pesquisar"}>Relatórios</Link>         
                             </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" name="id" to={"/dashboard"}>Dashboard</Link>         
+                            </li>
                         </ul>
                     </div>
                 </div>

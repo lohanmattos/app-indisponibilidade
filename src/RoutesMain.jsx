@@ -8,6 +8,7 @@ import Cadastro from './pages/Cadastro';
 import ViewAfastamento from './pages/ViewAfastamento';
 import EditAfastamento from './pages/EditAfastamento';
 import Pesquisar from './pages/Pesquisar';
+import Dashboard from './pages/Dashboard';
 
 //Criar o componentes com as rotas
 function RoutesMain(){
@@ -19,6 +20,7 @@ function RoutesMain(){
           <Route path="/view/:id" element={<ViewAfastamento />} />
           <Route path="/edit/:id" element={<EditAfastamento />} />
           <Route path="/pesquisar/" element={<Pesquisar/>} />
+          <Route path="/dashboard/" element={<Dashboard/>} />
         </Routes>
       </BrowserRouter> 
     );
