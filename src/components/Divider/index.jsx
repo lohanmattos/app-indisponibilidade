@@ -22,6 +22,7 @@ function Divider(props){
                 </div>
         </div>
     )
+    
 }
 
 export default Divider
