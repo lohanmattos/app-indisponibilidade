@@ -3,30 +3,20 @@ import { Link } from "react-router-dom";
 function Navbar() {
     return (
         <div className="">
- <nav className="navbar navbar-dark bg-dark">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="/">Coruja - Gestor</a>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul className="navbar-nav">
-                            <li className="nav-item">
-                            <Link className="nav-link " to={"/"}>Página Inicial</Link> 
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" name="id" to={"/cadastro"}>Cadastrar Indis.</Link>         
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" name="id" to={"/pesquisar"}>Relatórios</Link>         
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" name="id" to={"/dashboard"}>Dashboard</Link>         
-                            </li>
-                        </ul>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <Link to={"/"}>  <a class="navbar-brand">Coruja</a></Link>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <Link to={"efetivo-home"}><a class="nav-link active">Efetivo</a></Link>
+                        <Link to={"afastamento-home"}><a class="nav-link active">Afastamento</a></Link>
                     </div>
                 </div>
-            </nav>
+            </div>
+        </nav>
         </div>
     )
 }
