@@ -73,8 +73,8 @@ function Table() {
                                 <td>{format(new Date(parseISO(afastamento.dataInicio)), 'dd/MM/yyyy')}</td>
                                 <td>{format(new Date(parseISO(afastamento.dataFim)), 'dd/MM/yyyy')}</td>
                                 <td id="links">
-                                    <Link id="links-list" to={`view/${afastamento.id}`}><i className="fa-solid fa-eye"></i></Link>
-                                    <Link id="links-list" to={`edit/${afastamento.id}`}><i className="fa-solid fa-pen-to-square"></i></Link>
+                                    <Link id="links-list" to={`/afastamento-visualizar/${afastamento.id}`}><i className="fa-solid fa-eye"></i></Link>
+                                    <Link id="links-list" to={`/afastamento-editar/${afastamento.id}`}><i className="fa-solid fa-pen-to-square"></i></Link>
                                 </td>
                             </tr>
                         ))

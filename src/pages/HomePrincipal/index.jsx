@@ -22,7 +22,7 @@ function HomePrincipal() {
                                         <p class="card-text"></p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="btn-group">
-                                                <Link to={"efetivo-home"}><button type="button" class="btn btn-primary">Acessar</button></Link>
+                                                <Link to={"/efetivo"}><button type="button" class="btn btn-primary">Acessar</button></Link>
                                             </div>
                                             <small class="text-muted"></small>
                                         </div>
@@ -37,7 +37,7 @@ function HomePrincipal() {
                                         <p class="card-text"></p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="btn-group">
-                                                <Link to={"afastamento-home"}><button type="button" class="btn btn-primary">Acessar</button></Link>                                            </div>
+                                                <Link to={"/afastamento"}><button type="button" class="btn btn-primary">Acessar</button></Link>                                            </div>
                                             <small class="text-muted"></small>
                                         </div>
                                     </div>

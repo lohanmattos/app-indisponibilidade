@@ -20,7 +20,7 @@ function RoutesMain(){
         <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePrincipal />} />
-          <Route path="/afastamento-home" element={<Home />} />
+          <Route path="/afastamento" element={<Home />} />
           <Route path="/afastamento-cadastro" element={<Cadastro />} />
           <Route path="/afastamento-visualizar/:id" element={<ViewAfastamento />} />
           <Route path="/afastamento-editar/:id" element={<EditAfastamento />} />
