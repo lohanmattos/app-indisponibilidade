@@ -44,15 +44,15 @@ function Home() {
   return (
     <div>
       <Navbar />
-      <Divider title="Afastamento" />
+      <Divider title="" />
       <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           Menu de Ações
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#"><Link className="nav-link" name="id" to={"/afastamento-cadastro"}>Cadastrar</Link></a></li>
-          <li><a class="dropdown-item" href="#"><Link className="nav-link" name="id" to={"/afastamento-pesquisar"}>Buscar</Link></a></li>
-          <li><a class="dropdown-item" href="#"><Link className="nav-link" name="id" to={"/afastamento-dashboard"}>Estatística</Link></a></li>
+          <li><a class="dropdown-item"><Link className="nav-link" name="id" to={"/afastamento-cadastro"}>Cadastrar</Link></a></li>
+          <li><a class="dropdown-item"><Link className="nav-link" name="id" to={"/afastamento-pesquisar"}>Buscar</Link></a></li>
+          <li><a class="dropdown-item"><Link className="nav-link" name="id" to={"/afastamento-dashboard"}>Estatística</Link></a></li>
         </ul>
       </div>
       <h2>INDISPONIBILIDADES</h2>
@@ -67,5 +67,4 @@ function Home() {
     </div>
   )
 }
-
 export default Home
