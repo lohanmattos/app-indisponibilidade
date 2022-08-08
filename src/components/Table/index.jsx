@@ -14,7 +14,6 @@ function Table({ dados }) {
                         <th scope="col">Data Inicio</th>
                         <th scope="col">Data Término</th>
                         <th scope="col">Motivo</th>
-
                         <th scope="col">Opções</th>
                     </tr>
                 </thead>
