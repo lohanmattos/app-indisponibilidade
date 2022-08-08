@@ -66,7 +66,7 @@ function FormCadastro() {
                         <option value="CURSO">CURSO</option>
                         <option value="INSTALAÇÃO">INSTALAÇÃO</option>
                         <option value="REUNIÃO">REUNIÃO</option>
-                        <option value="COMISSONAMENTO">COMISSONAMENTO</option>
+                        <option value="COMISSIONAMENTO">COMISSONAMENTO</option>
                         <option value="INSPEÇÃO DE SAÚDE">INSPEÇÃO DE SAÚDE</option>
                         <option value="OUTROS">OUTROS</option>
                     </select>

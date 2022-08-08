@@ -44,7 +44,7 @@ function Home() {
   return (
     <div>
       <Navbar />
-      <Divider title="" />
+      <Divider title="Afastamento" />
       <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           Menu de Ações
