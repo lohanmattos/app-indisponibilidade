@@ -6,6 +6,9 @@ import "./styles.css"
 import { useState } from 'react';
 import Navbar from '../../../components/Navbar';
 
+import Divider from '../../../components/Divider';
+import Footer from '../../../components/Footer';
+
 function CadastroUser() {
     //carrega function do componente useForm
     const { register, handleSubmit, reset } = useForm();
@@ -28,6 +31,7 @@ function CadastroUser() {
     return (
         <>
         <Navbar/>
+        <Divider title="Modulo Efetivo"/>
         <div className="container">
             <br />
             <h2>CADASTRAR NOVO USUÁRIO</h2>
@@ -75,6 +79,7 @@ function CadastroUser() {
             </form>
             </div>
         </div>
+        <Footer/>
         </>
     )
 }

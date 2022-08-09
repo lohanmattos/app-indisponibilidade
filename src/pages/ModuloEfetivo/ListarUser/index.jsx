@@ -57,7 +57,7 @@ function ListarUser() {
           Menu de Ações
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item"><Link className="nav-link" name="id" to={"/afastamento-cadastro"}>Cadastrar</Link></a></li>
+          <li><a class="dropdown-item"><Link className="nav-link" name="id" to={"/efetivo-cadastrar"}>Cadastrar</Link></a></li>
           <li><a class="dropdown-item"><Link className="nav-link" name="id" to={"/afastamento-pesquisar"}>Buscar</Link></a></li>
           <li><a class="dropdown-item"><Link className="nav-link" name="id" to={"/afastamento-dashboard"}>Estatística</Link></a></li>
         </ul>
