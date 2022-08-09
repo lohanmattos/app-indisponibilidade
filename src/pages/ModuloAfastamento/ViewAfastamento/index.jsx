@@ -5,11 +5,11 @@ import * as React from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import Navbar from "../../components/Navbar";
-import Divider from "../../components/Divider";
-import Footer from "../../components/Footer";
+import Navbar from "../../../components/Navbar";
+import Divider from "../../../components/Divider";
+import Footer from "../../../components/Footer";
 
-import BASE_URL from '../../utils/request';
+import BASE_URL from '../../../utils/request';
 import { parseISO } from 'date-fns'
 
 import "./styless.css"

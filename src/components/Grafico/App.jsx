@@ -17,14 +17,18 @@ export const options = {
 
 export function App() {
   return (
+    <>
+    <h2>ESTATÍSTICAS</h2>
     <Chart
       chartType="Bar"
-      width="100%"
+      width="80%"
       height="400px"
       data={data}
       options={options}
     />
+    </>
   );
+  
 }
 
 export default App;

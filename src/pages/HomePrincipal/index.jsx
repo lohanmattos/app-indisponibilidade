@@ -3,6 +3,7 @@ import Divider from "../../components/Divider";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar"
 
+
 import './styles.css'
 
 function HomePrincipal() {
@@ -16,10 +17,9 @@ function HomePrincipal() {
                         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                             <div class="col">
                                 <div class="card shadow-sm">
-                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Modulo Efetivo</text></svg>
-
+                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><img src="../../assets/kc390.jpg" alt="" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Modulo Efetivo</text></svg>
                                     <div class="card-body">
-                                        <p class="card-text"></p>
+                                        <p class="card-text"><strong>Realizar o controle do Efetivo.</strong></p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="btn-group">
                                                 <Link to={"/efetivo"}><button type="button" class="btn btn-primary">Acessar</button></Link>
@@ -34,7 +34,7 @@ function HomePrincipal() {
                                     <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Modulo Afastamento</text></svg>
 
                                     <div class="card-body">
-                                        <p class="card-text"></p>
+                                        <p class="card-text"><strong>Realizar o controle de indisponibilidades.</strong></p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="btn-group">
                                                 <Link to={"/afastamento"}><button type="button" class="btn btn-primary">Acessar</button></Link>                                            </div>
@@ -43,6 +43,22 @@ function HomePrincipal() {
                                     </div>
                                 </div>
                             </div>
+                            <div class="col">
+                                <div class="card shadow-sm">
+                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Modulo Material Carga</text></svg>
+
+                                    <div class="card-body">
+                                        <p class="card-text"><strong>Realizar o controle de Material.</strong></p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="btn-group">
+                                            <a target="_blank" type="button" class="btn btn-primary" href="https://controlematerial.herokuapp.com" >Acessar</a>
+                                                                                      
+                                            </div>
+                                            <small class="text-muted"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                           
                         </div>
                     </div>
                 </div>

@@ -7,10 +7,12 @@ import { Link } from "react-router-dom";
 
 import axios from "axios";
 
-import BASE_URL from '../../utils/request';
+import BASE_URL from '../../../utils/request';
 
 import './styles.css'
-import Navbar from '../../components/Navbar';
+import Navbar from '../../../components/Navbar';
+import Divider from '../../../components/Divider';
+import Footer from '../../../components/Footer';
 
 function ListarUser() {
 
@@ -48,8 +50,18 @@ function ListarUser() {
     return (
         <>
          <Navbar/>
+         <Divider title="Modulo Efetivo"/>
         <div className="container">
-
+        <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Menu de Ações
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item"><Link className="nav-link" name="id" to={"/afastamento-cadastro"}>Cadastrar</Link></a></li>
+          <li><a class="dropdown-item"><Link className="nav-link" name="id" to={"/afastamento-pesquisar"}>Buscar</Link></a></li>
+          <li><a class="dropdown-item"><Link className="nav-link" name="id" to={"/afastamento-dashboard"}>Estatística</Link></a></li>
+        </ul>
+      </div>
             <br />
             <h2>Efetivo</h2>
             <table className="table table-striped">
@@ -85,6 +97,7 @@ function ListarUser() {
                 <CircularProgress color="primary" />
             </Backdrop>
         </div>
+        <Footer/>
         </>
     )
 }

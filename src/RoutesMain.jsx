@@ -4,13 +4,15 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 //Importar as páginas
 import Home from './pages/ModuloAfastamento/Home';
-import Cadastro from './pages/Cadastro';
-import ViewAfastamento from './pages/ViewAfastamento';
-import EditAfastamento from './pages/EditAfastamento';
-import Pesquisar from './pages/Pesquisar';
-import Dashboard from './pages/Dashboard';
-import CadastroUser from './pages/CadastroUser';
-import ListarUser from './pages/ListarUser';
+import Cadastro from './pages/ModuloAfastamento/Cadastro';
+import ViewAfastamento from './pages/ModuloAfastamento/ViewAfastamento';
+import EditAfastamento from './pages/ModuloAfastamento/EditAfastamento';
+import Pesquisar from './pages/ModuloAfastamento/Pesquisar';
+import Dashboard from './pages/ModuloAfastamento/Dashboard';
+
+
+import CadastroUser from './pages/ModuloEfetivo/CadastroUser';
+import ListarUser from './pages/ModuloEfetivo/ListarUser';
 
 import HomePrincipal from './pages/HomePrincipal';
 
@@ -28,8 +30,8 @@ function RoutesMain(){
           <Route path="/afastamento-dashboard/" element={<Dashboard/>} />
 
 
-          <Route path="/efetivo-cadastrar-usuario/" element={<CadastroUser/>} />
-          <Route path="/efetivo-listar-usuario/" element={<ListarUser/>} />
+          <Route path="/efetivo-cadastrar" element={<CadastroUser/>} />
+          <Route path="/efetivo/" element={<ListarUser/>} />
         </Routes>
       </BrowserRouter> 
     );

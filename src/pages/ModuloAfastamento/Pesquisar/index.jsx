@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Navbar from "../../components/Navbar"
-import Divider from "../../components/Divider"
-import Footer from "../../components/Footer"
+import Navbar from "../../../components/Navbar"
+import Divider from "../../../components/Divider"
+import Footer from "../../../components/Footer"
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react"
 
@@ -10,7 +10,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 import './styles.css'
 
-import BASE_URL from '../../utils/request';
+import BASE_URL from '../../../utils/request';
 import { parseISO } from 'date-fns'
 
 function Pesquisar() {
@@ -47,7 +47,7 @@ function Pesquisar() {
     return (
         <div>
             <Navbar />
-            <Divider />
+            <Divider title="Modulo Afastamento" />
             <div className="container">
             <h2>PESQUISAR INDISPONIBILIDADE</h2>
                 <form id="form-pesquisar" className="row row-cols-lg-auto g-3 align-items-center" onSubmit={handleSubmit(onSubmit)}>

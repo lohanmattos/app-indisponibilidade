@@ -1,10 +1,10 @@
 import { useForm } from 'react-hook-form';
-import BASE_URL from '../../utils/request';
+import BASE_URL from '../../../utils/request';
 import axios from "axios";
 
 import "./styles.css"
 import { useState } from 'react';
-import Navbar from '../../components/Navbar';
+import Navbar from '../../../components/Navbar';
 
 function CadastroUser() {
     //carrega function do componente useForm
